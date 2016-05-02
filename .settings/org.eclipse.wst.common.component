@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="Livraria-XPTO-Sistema-de-Reservas-de-Livros-On-Line">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="java-output-path" value="/Livraria-XPTO-Sistema-de-Reservas-de-Livros-On-Line/build/classes"/>
+        <property name="context-root" value="Livraria-XPTO-Sistema-de-Reservas-de-Livros-On-Line"/>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+	<form-beans>
+		<form-bean name="ReservaForm" type="action.form.bean.ReservaForm" />
+		<form-bean name="LivroForm" type="action.form.bean.LivroForm" />
+		<form-bean name="UsuarioForm" type="action.form.bean.UsuarioForm" />
+
+
+	</form-beans>
+
+	<global-exceptions>
+
+	</global-exceptions>
+
+	<global-forwards>
+
+		<!-- redirecionamento para Usuarios -->
+
+		<forward name="sucessoConsultarUsuario" path="/SucessoConsultarUsuario.do" />
+		<forward name="sucessoAlterarUsuario" path="/SucessoAlterarUsuario.do" />
+		<forward name="sucessoIncluir" path="/SucessoIncluir.do" />
+		<forward name="sucessoExcluir" path="/SucessoExcluir.do" />
+
+		<!-- para login , logout e erros e email -->
+
+		<forward name="logado" path="/Logado.do" />
+		<forward name="erroLogin" path="/ErroLogin.do" />
+		<forward name="logout" path="/Logout.do" />
+		<forward name="sucessoRecuperarSenha" path="/SucessoRecuperarSenha.do" />
+
+		<!-- redirecionamento para Livros -->
+		<forward name="sucessoIncluirLivro" path="/SucessoIncluirLivro.do" />
+		<forward name="sucessoalterarLivro" path="/SucessoAlterarLivro.do" />
+		<forward name="sucessoExcluirLivro" path="/SucessoExcluirLivro.do" />
+		<forward name="sucessoConsultarLivro" path="/SucessoConsultarLivro.do" />
+	
+
+		<!-- redirecionamento para Reversas -->
+		<forward name="sucessoIncluirReserva" path="/SucessoIncluirReserva.do" />
+		<forward name="sucessoConsultaReserva" path="/SucessoConsultaReserva.do" />
+
+
+	</global-forwards>
+
+
+	<action-mappings>
+		<action input="/" name="ReservaForm" path="/ConsultarReservaForm"
+			scope="session" type="action.struts.ReservaConsultarAction" validate="false" />
+		<action input="/" name="ReservaForm" path="/IncluirReservaForm"
+			scope="session" type="action.struts.ReservaIncluirAction" validate="false" />
+
+		<!-- incluir reserva -->
+		<action path="/Formulario" forward="/incluirReserva.jsp" />
+		<action path="/Formulario" forward="/consultarReserva.jsp" />
+
+		<!--Resultado Reserva -->
+		<action path="/SucessoIncluirReserva" forward="/retorno.jsp" />
+		<action path="/SucessoConsultaReserva" forward="/consultaReserva.jsp" />
+
+		<!-- controle CRUD LIVROS -->
+		
+		<action input="/" name="LivroForm" path="/ConsultarLivroForm"
+			scope="session" type="action.struts.LivroConsultarAction" validate="false" />
+		<action input="/" name="LivroForm" path="/ExcluirLivroForm"
+			scope="session" type="action.struts.LivroExcluirAction" validate="false" />
+		<action input="/" name="LivroForm" path="/InserirLivroForm"
+			scope="session" type="action.struts.LivroInserirAction" validate="false" />
+		<action input="/" name="LivroForm" path="/AlterarLivroForm"
+			scope="session" type="action.struts.LivroAlterarAction" validate="false" />
+
+
+		<!-- incluir Livro -->
+		<action path="/Formulario" forward="/livro.jsp" />
+		<action path="/Formulario" forward="/alterarLivro.jsp" />
+		<action path="/Formulario" forward="/excluirLivro.jsp" />
+		<action path="/Formulario" forward="/consultarLivro.jsp" />
+
+		<!-- pagina de resultado de Livros -->
+		<action path="/SucessoIncluirLivro" forward="/retorno.jsp" />
+		<action path="/SucessoAlterarLivro" forward="/retorno.jsp" />
+		<action path="/SucessoExcluirLivro" forward="/retorno.jsp" />
+		<action path="/SucessoConsultarLivro" forward="/consultaLivro.jsp" />
+		
+
+		<!-- controle CRUD USUARIOS -->
+
+		<action input="/" name="UsuarioForm" path="/InserirUsuarioForm"
+			scope="session" type="action.struts.UsuarioInserirAction" validate="false" />
+		<action input="/" name="UsuarioForm" path="/ExcluirUsuarioForm"
+			scope="session" type="action.struts.UsuarioExcluirAction" validate="false" />
+		<action input="/" name="UsuarioForm" path="/AlterarUsuarioForm"
+			scope="session" type="action.struts.UsuarioAlterarAction" validate="false" />
+		<action input="/" name="UsuarioForm" path="/ConsultarUsuarioForm"
+			scope="session" type="action.struts.UsuarioConsultarAction" validate="false" />
+
+		<!-- login e logout controle -->
+		<action input="/" name="UsuarioForm" path="/LogoutForm" scope="session"
+			type="action.struts.LogoutAction" validate="false" />
+		<action input="/" name="UsuarioForm" path="/loginForm" scope="session"
+			type="action.struts.LoginAction" validate="false" />
+
+		<!-- recuperar e enviar email -->
+		<action input="/" name="UsuarioForm" path="/LembrarSenhaForm"
+			scope="session" type="action.struts.LembrarSenhaAction" validate="false" />
+
+		<action path="/Formulario" forward="/esqueceuSenha.jsp" />
+		<action path="/SucessoRecuperarSenha" forward="/esqueceuSenha.jsp" />
+
+		<!-- incluir Usuario -->
+		<action path="/Formulario" forward="/usuario.jsp" />
+
+		<!-- menu do controle -->
+		<action path="/Logado" forward="/principal.jsp" />
+
+		<!-- retorna para o index , depois de inserir usuario -->
+		<action path="/SucessoIncluir" forward="/index.jsp" />
+
+		<!-- retorna para tela geral do Usario , apos consultar -->
+		<action path="/SucessoConsultarUsuario" forward="/alterarUsuario.jsp" />
+
+		<!-- retorna para tela geral do Usario , apos alterar -->
+		<action path="/SucessoAlterarUsuario" forward="/alterarUsuario.jsp" />
+
+		<!-- exclusão , retorn apra tela index e desloga -->
+		<action path="/SucessoExcluir" forward="/index.jsp" />
+
+		<!--logout , botao no principal.jsp -->
+		<action path="/Logout" forward="/index.jsp" />
+
+		<!-- erros de login, ao entrar com validaçoes errad -->
+		<action path="/ErroLogin" forward="/index.jsp" />
+	</action-mappings>
+
+
+
+	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+
+	<message-resources parameter="com/myapp/struts/ApplicationResource" />
+
+	<!-- ========================= Tiles plugin =============================== -->
+	<!-- This plugin initialize Tiles definition factory. This later can takes 
+		some parameters explained here after. The plugin first read parameters from 
+		web.xml, thenoverload them with parameters defined here. All parameters are 
+		optional. The plugin should be declared in each struts-config file. - definitions-config: 
+		(optional) Specify configuration file names. There can be several comma separated 
+		file names (default: ?? ) - moduleAware: (optional - struts1.1) Specify if 
+		the Tiles definition factory is module aware. If true (default), there will 
+		be one factory for each Struts module. If false, there will be one common 
+		factory for all module. In this later case, it is still needed to declare 
+		one plugin per module. The factory will be initialized with parameters found 
+		in the first initialized plugin (generally the one associated with the default 
+		module). true : One factory per module. (default) false : one single shared 
+		factory for all modules - definitions-parser-validate: (optional) Specify 
+		if xml parser should validate the Tiles configuration file. true : validate. 
+		DTD should be specified in file header (default) false : no validation Paths 
+		found in Tiles definitions are relative to the main context. -->
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
+
+	<!-- ========================= Validator plugin ================================= -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml" />
+	</plug-in>
+
+</struts-config>
