@@ -126,9 +126,9 @@ public class LembrarSenhaAction extends org.apache.struts.action.Action {
                    
                    message.setSubject("Recuperação de Senha","UTF-8"); //Assunto
                    
-                   String msg11  = usuario.getNome() + " Sua Senha � : " + usuario.getSenha();
+                   String msg11  = usuario.getNome() + " Sua Senha é : " + usuario.getSenha();
                    
-                   message.setContent(msg11,"text/plain; charset=utf-8");
+                   message.setContent(msg11,"text/plain; charset=UTF-8");
                    
                    //metodo apra enviar a mensagem criada
                    Transport.send(message);
