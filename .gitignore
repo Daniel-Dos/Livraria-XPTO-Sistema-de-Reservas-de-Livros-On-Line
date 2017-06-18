@@ -15,6 +15,7 @@
 .springBeans
 .settings/
 target/
+build/
 
 
 /bin/
