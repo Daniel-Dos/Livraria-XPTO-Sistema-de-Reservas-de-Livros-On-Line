@@ -62,27 +62,20 @@
 							<th>Codigo do Livro Reservado</th>
 							<th>Data da Reserva</th>
 							<th>Prazo</th>
-
 						</tr>
 					</thead>
 					<tbody>
-
 						<c:forEach items="${al}" var="user">
 							<tr>
 								<td><c:out value="${user.usuario.login}" /></td>
 								<td><c:out value="${user.codLivro.codigo}" /></td>
-								<td><fmt:formatDate pattern="dd-MM-yyyy"
-										value="${user.dataCadastro.time}" /></td>
+								<td><fmt:formatDate pattern="dd-MM-yyyy" value="${user.dataCadastro.time}" /></td>
 								<td><c:out value="${usuario.prazo}" /></td>
-
-
 							</tr>
 						</c:forEach>
-
 					</tbody>
 				</table>
 			</div>
-
 			<br /> <br /> <br /> <br /> <br /> <a
 				href="javascript:history.back(1);" class="button special">Voltar</a>
 		</div>
@@ -95,7 +88,7 @@
 		<div class="container">
 			<div class="row">
 				<ul class="copyright">
-					<<li>Curso: Pï¿½s-Graduaï¿½ï¿½o em JAVA</li>
+					<<li>Curso: Pós-Graduação em JAVA</li>
                         <li>Disciplina: Sistemas para Web e Componentes JEE e Frameworks</li><br />
                         <li>Copyright &copy; Daniel Dias dos Santos 2016</li>
                         <li>

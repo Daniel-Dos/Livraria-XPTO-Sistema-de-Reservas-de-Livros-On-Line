@@ -13,17 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package modelos;
 
 import javax.persistence.Entity;
 
+/**
+ * @author daniel
+ * github:Daniel-Dos
+ * daniel.dias.analistati@gmail.com
+ * twitter:@danieldiasjava
+ */
 @Entity
-public class UsuarioVip  extends Usuario{
-    
-    public int getPrazo() {
-        return  10;
-    }
+public class UsuarioVip extends Usuario {
 
-
-
+	public int getPrazo() {
+		return 10;
+	}
 }

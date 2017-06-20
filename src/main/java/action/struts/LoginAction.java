@@ -13,11 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package action.struts;
 
 import action.form.bean.UsuarioForm;
@@ -40,88 +35,70 @@ import persistencia.DAOFactory;
 import persistencia.GenericDAO;
 
 /**
- *
- * @author Daniel Dias
+ * @author daniel
+ * github:Daniel-Dos
+ * daniel.dias.analistati@gmail.com
+ * twitter:@danieldiasjava
  */
 public class LoginAction extends org.apache.struts.action.Action {
 
-    /* forward name="success" path="" */
-    // private static final String SUCCESS = "success";
-    /**
-     * This is the action called from the Struts framework.
-     *
-     * @param mapping The ActionMapping used to select this instance.
-     * @param form The optional ActionForm bean for this request.
-     * @param request The HTTP Request we are processing.
-     * @param response The HTTP Response we are processing.
-     * @throws java.lang.Exception
-     * @return
-     *
-     *
-     *
-     */
-    @Override
-    public ActionForward execute(ActionMapping mapping, ActionForm form,
-            HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+	@Override
+	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 
-        Usuario usuario = null;
-        DAOFactory df = null;
-        String msg = null, msg1 = null;
+		Usuario usuario = null;
+		DAOFactory df = null;
+		String msg = null, msg1 = null;
+		GenericDAO<Usuario> daoUsuario = null;
 
-        GenericDAO<Usuario> daoUsuario = null;
+		try {
 
-        try {
- 
-            df = DAOFactory.getDaoFactory(DAOFactory.HIBERNATE);
-            daoUsuario = (GenericDAO<Usuario>) df.getGenericoDAOUsuarioHibernate();
+			df = DAOFactory.getDaoFactory(DAOFactory.HIBERNATE);
+			daoUsuario = (GenericDAO<Usuario>) df.getGenericoDAOUsuarioHibernate();
 
-            usuario = new UsuarioVip();
-            BeanUtils.copyProperties(usuario, (UsuarioForm) form);
+			usuario = new UsuarioVip();
+			BeanUtils.copyProperties(usuario, (UsuarioForm) form);
 
-            usuario = daoUsuario.consultarLoginSenha(usuario);
+			usuario = daoUsuario.consultarLoginSenha(usuario);
 
-            String acao = request.getParameter("acao");
+			String acao = request.getParameter("acao");
 
-            if (usuario != null) {
-                request.getSession().setAttribute("usuario", usuario);
-                acao = "V";
-            }
+			if (usuario != null) {
+				request.getSession().setAttribute("usuario", usuario);
+				acao = "V";
+			}
 
-            if (acao.equals("V")) {
-                //Verificação
-                HttpSession session = request.getSession();
-                if (session.getAttribute("usuario") != null) {
-                    msg = "Seja Bem Vindo  ";
-                    request.setAttribute("msg", msg);
-                } else {
-                    request.getSession().invalidate();
-                    msg1 = "Usuario/Senha não existe ou não Cadastrado!!";
-                    request.setAttribute("msg1", msg1);
+			if (acao.equals("V")) {
+				// Verificação
+				HttpSession session = request.getSession();
+				if (session.getAttribute("usuario") != null) {
+					msg = "Seja Bem Vindo  ";
+					request.setAttribute("msg", msg);
+				} else {
+					request.getSession().invalidate();
+					msg1 = "Usuario/Senha não existe ou não Cadastrado!!";
+					request.setAttribute("msg1", msg1);
 
-                    return mapping.findForward("erroLogin");
-                }
-            }
+					return mapping.findForward("erroLogin");
+				}
+			}
 
-        } catch (ClassNotFoundException e) {
-            msg1 = "Erro de Driver";
-            //e.printStackTrace();
-            request.setAttribute("msg1", msg1);
-            return mapping.findForward("erroLogin");
-
-        } catch (SQLException | ConnectException e) {
-            msg1 = "Erro de SQL - Erro ao conectar no servidor 'localhost' porta '1527";
-            //e.printStackTrace();
-            request.setAttribute("msg1", msg1);
-            return mapping.findForward("erroLogin");
-        } catch (Exception e) {
-            msg1 = "Erro generico";
-            e.printStackTrace();
-            request.setAttribute("msg1", msg1);
-            return mapping.findForward("erroLogin");
-        }
-
-        return mapping.findForward("logado");
-    }
-
+		} catch (ClassNotFoundException e) {
+			msg1 = "Erro de Driver";
+			System.out.println(e.getMessage());
+			request.setAttribute("msg1", msg1);
+			return mapping.findForward("erroLogin");
+		} catch (SQLException | ConnectException e) {
+			msg1 = "Erro de SQL - Erro ao conectar no servidor 'localhost' porta '1527";
+			System.out.println(e.getMessage());
+			request.setAttribute("msg1", msg1);
+			return mapping.findForward("erroLogin");
+		} catch (Exception e) {
+			msg1 = "Erro generico";
+			System.out.println(e.getMessage());
+			request.setAttribute("msg1", msg1);
+			return mapping.findForward("erroLogin");
+		}
+		return mapping.findForward("logado");
+	}
 }

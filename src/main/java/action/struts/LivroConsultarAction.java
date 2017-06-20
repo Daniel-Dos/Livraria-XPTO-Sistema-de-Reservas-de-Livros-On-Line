@@ -13,11 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package action.struts;
 
 import java.sql.SQLException;
@@ -36,28 +31,13 @@ import persistencia.DAOFactory;
 import persistencia.GenericDAO;
 
 /**
- *
- * @author Daniel Dias
+ * @author daniel
+ * github:Daniel-Dos
+ * daniel.dias.analistati@gmail.com
+ * twitter:@danieldiasjava
  */
 public class LivroConsultarAction extends org.apache.struts.action.Action {
 
-	/* forward name="success" path="" */
-	// private static final String SUCCESS = "success";
-
-	/**
-	 * This is the action called from the Struts framework.
-	 *
-	 * @param mapping
-	 *            The ActionMapping used to select this instance.
-	 * @param form
-	 *            The optional ActionForm bean for this request.
-	 * @param request
-	 *            The HTTP Request we are processing.
-	 * @param response
-	 *            The HTTP Response we are processing.
-	 * @throws java.lang.Exception
-	 * @return
-	 */
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -65,7 +45,6 @@ public class LivroConsultarAction extends org.apache.struts.action.Action {
 		Livro livro = null;
 		DAOFactory df = null;
 		String msg1 = null;
-
 		GenericDAO<Livro> daoLivro = null;
 
 		try {
@@ -73,21 +52,18 @@ public class LivroConsultarAction extends org.apache.struts.action.Action {
 			df = DAOFactory.getDaoFactory(DAOFactory.HIBERNATE);
 			daoLivro = (GenericDAO<Livro>) df.getGenericoDAOLivroHibernate();
 
-			 livro = new Livro();
+			livro = new Livro();
 
-	            BeanUtils.copyProperties(livro, (LivroForm) form);
+			BeanUtils.copyProperties(livro, (LivroForm) form);
 
-	            //livro = daoLivro.consultar(livro);
-			    msg1 = "Consulta de Livro Realizada com Sucesso";
-			    
-			    
-			    
+			msg1 = "Consulta de Livro Realizada com Sucesso";
+
 		} catch (ClassNotFoundException e) {
-			// msg = "Erro de Driver";
+			System.out.println(e.getMessage());
 		} catch (SQLException e) {
-			// msg = "Erro de SQL";
+			System.out.println(e.getMessage());
 		} catch (Exception e) {
-			// msg = "Erro";
+			System.out.println(e.getMessage());
 		}
 
 		request.setAttribute("aux", msg1);

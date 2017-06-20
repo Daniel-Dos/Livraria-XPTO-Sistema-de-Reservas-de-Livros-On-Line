@@ -13,11 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package action.struts;
 
 import action.form.bean.ReservaForm;
@@ -37,72 +32,60 @@ import persistencia.DAOFactory;
 import persistencia.GenericDAO;
 
 /**
- *
- * @author Daniel Dias
+ * @author daniel
+ * github:Daniel-Dos
+ * daniel.dias.analistati@gmail.com
+ * twitter:@danieldiasjava
  */
 public class ReservaConsultarAction extends org.apache.struts.action.Action {
 
-    /* forward name="success" path="" */
-    //private static final String SUCCESS = "success";
-    /**
-     * This is the action called from the Struts framework.
-     *
-     * @param mapping The ActionMapping used to select this instance.
-     * @param form The optional ActionForm bean for this request.
-     * @param request The HTTP Request we are processing.
-     * @param response The HTTP Response we are processing.
-     * @throws java.lang.Exception
-     * @return ConsultarReservaForm
-     */
-    @Override
-    public ActionForward execute(ActionMapping mapping, ActionForm form,
-            HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+	@Override
+	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 
-        Reserva reserva = null;
-        String msg = null;
-        Usuario usuario = null;
-        DAOFactory df = null;
-        Livro livro = null;
+		Reserva reserva = null;
+		String msg = null;
+		Usuario usuario = null;
+		DAOFactory df = null;
+		Livro livro = null;
 
-        GenericDAO<Reserva> daoReserva = null;
-        GenericDAO<Usuario> daoUsuario = null;
-        GenericDAO<Livro> daoLivro = null;
+		GenericDAO<Reserva> daoReserva = null;
+		GenericDAO<Usuario> daoUsuario = null;
+		GenericDAO<Livro> daoLivro = null;
 
-        try {
-            
-           
-            df = DAOFactory.getDaoFactory(DAOFactory.HIBERNATE);
-            daoLivro = (GenericDAO<Livro>) df.getGenericoDAOLivroHibernate();
-            daoReserva = (GenericDAO<Reserva>) df.getGenericoDAOReservaHibernate();
-            daoUsuario = (GenericDAO<Usuario>) df.getGenericoDAOUsuarioHibernate();
+		try {
 
-            reserva = new Reserva();
-            usuario = new UsuarioVip();
+			df = DAOFactory.getDaoFactory(DAOFactory.HIBERNATE);
+			daoLivro = (GenericDAO<Livro>) df.getGenericoDAOLivroHibernate();
+			daoReserva = (GenericDAO<Reserva>) df.getGenericoDAOReservaHibernate();
+			daoUsuario = (GenericDAO<Usuario>) df.getGenericoDAOUsuarioHibernate();
 
-            usuario.setLogin(request.getParameter("login"));
-          
-            request.setAttribute("usuario", daoUsuario.consultar(usuario) );
+			reserva = new Reserva();
+			usuario = new UsuarioVip();
 
-            reserva.setUsuario(usuario);
-            usuario.addReserva(reserva);
+			usuario.setLogin(request.getParameter("login"));
 
-            request.setAttribute("al", daoReserva.getUser(reserva));
+			request.setAttribute("usuario", daoUsuario.consultar(usuario));
 
-            msg = "Consulta de Reserva realizada com sucesso";
+			reserva.setUsuario(usuario);
+			usuario.addReserva(reserva);
 
-        } catch (ClassNotFoundException e) {
-            msg = "Erro de Driver";
-            e.printStackTrace();
-        } catch (SQLException e) {
-            msg = "Erro de SQL";
-            e.printStackTrace();
-        } catch (Exception e) {
-            msg = "Erro generico";
-            e.printStackTrace();
-        }
+			request.setAttribute("al", daoReserva.getUser(reserva));
 
-        request.setAttribute("msg", msg);
-        return mapping.findForward("sucessoConsultaReserva");
-    }
+			msg = "Consulta de Reserva realizada com sucesso";
+
+		} catch (ClassNotFoundException e) {
+			msg = "Erro de Driver";
+			System.out.println(e.getMessage());
+		} catch (SQLException e) {
+			msg = "Erro de SQL";
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		} catch (Exception e) {
+			msg = "Erro generico";
+			System.out.println(e.getMessage());
+		}
+		request.setAttribute("msg", msg);
+		return mapping.findForward("sucessoConsultaReserva");
+	}
 }

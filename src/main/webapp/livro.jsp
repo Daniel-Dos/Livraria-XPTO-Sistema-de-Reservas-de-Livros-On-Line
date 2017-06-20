@@ -41,19 +41,15 @@
 				<h1><a href="index.jsp">Livraria XPTO - Sistema de Reservas de Livros On-Line</a></h1>
 				<nav id="nav">
 					<ul>
-						
 						<li><a href="livro.jsp">Livros</a></li>
-						
-						
 					</ul>
 				</nav>
 			</header>
 			<section id="main" class="wrapper">
 				<div class="container">
-
 					<header class="major">
 						<h2>Livros</h2>
-						<p>ï¿½rea destinada para consultas, inserï¿½ï¿½es, alteraï¿½ï¿½es e exclusï¿½es de livros.</p>
+						<p>Area destinada para consultas, inserïções, alterações e exclusções de livros.</p>
 					</header>
 						<section>
 							<div class="row">
@@ -77,7 +73,7 @@
 				<div class="container">
 					<div class="row">
 							<ul class="copyright">
-                        <li>Curso: Pï¿½s-Graduaï¿½ï¿½o em JAVA</li>
+                        <li>Curso: Pós-Graduação em JAVA</li>
                         <li>Disciplina: Sistemas para Web e Componentes JEE e Frameworks</li><br />
                         <li>Copyright &copy; Daniel Dias dos Santos 2016</li>
                         <li>

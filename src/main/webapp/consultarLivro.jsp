@@ -39,10 +39,7 @@
             <h1><a href="index.jsp">Livraria XPTO - Sistema de Reservas de Livros On-Line</a></h1>
             <nav id="nav">
                 <ul>
-                    
-                    <li><a href="livro.jsp">Livros</a></li>
-                   
-                    
+                    <li><a href="livro.jsp">Livros</a></li> 
                 </ul>
             </nav>
         </header>
@@ -53,7 +50,7 @@
             <h2>Consultar Livro</h2>
             </div>
                 <form action="ConsultarLivroForm.do" method="POST">
-                    Informe o Cï¿½digo:
+                    Informe o Codigo:
                     <input type="text" name="codigo" required="required"  /><br/>          
                     <input type="submit" value="Consultar Livro" />
                     <input type="reset" value="Cancelar" />
@@ -72,7 +69,7 @@
             <div class="container">
                 <div class="row">
                     <ul class="copyright">
-                        <li>Curso: Pï¿½s-Graduaï¿½ï¿½o em JAVA</li>
+                        <li>Curso: Pós-Graduação em JAVA</li>
                         <li>Disciplina: Sistemas para Web e Componentes JEE e Frameworks</li><br />
                         <li>Copyright &copy; Daniel Dias dos Santos 2016</li>
                         <li>

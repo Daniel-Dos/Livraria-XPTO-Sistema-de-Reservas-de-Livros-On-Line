@@ -13,37 +13,38 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package modelos;
 
 import java.io.Serializable;
 
 /**
- * @author Daniel Dias
- *
+ * @author daniel
+ * github:Daniel-Dos
+ * daniel.dias.analistati@gmail.com
+ * twitter:@danieldiasjava
  */
-public class ReservaId  implements Serializable {
-	
+public class ReservaId implements Serializable {
+
 	private String codLivro;
 	private String usuario;
-	
-	
+
 	public String getCodLivro() {
 		return codLivro;
 	}
-	
+
 	public void setCodLivro(String codLivro) {
 		this.codLivro = codLivro;
 	}
-	
+
 	public String getUsuario() {
 		return usuario;
 	}
-	
+
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
 
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -53,7 +54,6 @@ public class ReservaId  implements Serializable {
 		return result;
 	}
 
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -75,8 +75,4 @@ public class ReservaId  implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
-
 }

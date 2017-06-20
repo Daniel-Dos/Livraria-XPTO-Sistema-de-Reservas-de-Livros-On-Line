@@ -17,19 +17,20 @@ package modelos;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
+/**
+ * @author daniel
+ * github:Daniel-Dos
+ * daniel.dias.analistati@gmail.com
+ * twitter:@danieldiasjava
+ */
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo")
@@ -60,10 +61,6 @@ public abstract class Usuario {
 		return reservas;
 	}
 
-	/**
-	 * @param reservas
-	 *            the reservas to set
-	 */
 	public void setReservas(Map<String, Reserva> reservas) {
 		this.reservas = reservas;
 	}
@@ -113,5 +110,4 @@ public abstract class Usuario {
 	}
 
 	public abstract int getPrazo();
-
 }

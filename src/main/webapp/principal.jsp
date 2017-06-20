@@ -40,9 +40,6 @@
     <body class="landing">
         <header id="header">
             <h1>Livraria XPTO - Sistema de Reservas de Livros On-Line</h1>
-
-
-
             <form action="LogoutForm.do" method="post" align="right">
                 <div class="12u$">
                     <ul class="actions">
@@ -51,7 +48,6 @@
                     </ul>
                 </div>
             </form>
-
         </header>
         <section id="banner">
             <section id="three" class="wrapper style4 special">
@@ -92,7 +88,7 @@
             <div class="container">
                 <div class="row">
                     <ul class="copyright">
-                        <li>Curso: Pï¿½s-Graduaï¿½ï¿½o em JAVA</li>
+                        <li>Curso: Pós-Graduação em JAVA</li>
                         <li>Disciplina: Sistemas para Web e Componentes JEE e Frameworks</li><br />
                         <li>Copyright &copy; Daniel Dias dos Santos 2016</li>
                         <li>

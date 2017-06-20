@@ -20,7 +20,7 @@
 <html>
     <head>
         <meta charset="ISO-8859-1">
-        <title>Alteraï¿½ï¿½o de Usuario</title>
+        <title>Alteração de Usuario</title>
         <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
         <meta name="description" content="" />
         <meta name="keywords" content="" />
@@ -41,7 +41,6 @@
             <nav id="nav">
                 <ul>
                     <li><a href="principal.jsp">Menu Principal</a></li>
-                    
                 </ul>
             </nav>
         </header>
@@ -72,31 +71,31 @@
             <div class="container 50%">
             <br/>
                 <div class="row">
-            <h2>Alteraï¿½ï¿½o de Dados</h2>
+            <h2>Alteração de Dados</h2>
              <label style="color: green;">${aux}</label><br /><br />
             </div>
                 <form action="AlterarUsuarioForm.do" method="POST">
-                    Tipo de Usuï¿½rios<br />
+                    Tipo de Usuarios<br />
                  
                   
                   <input type="radio" name="rdbTipo" id="tipoVip" value="UsuarioVip"/>
-                 <label for="tipoVip">Usuï¿½rio Vip</label> <br />
+                 <label for="tipoVip">Usuario Vip</label> <br />
                  
                  <input type="radio" name="rdbTipo" id="tipoNormal" value="UsuarioNormal"/>
-                 <label for="tipoNormal">Usuï¿½rio Normal</label> <br />
+                 <label for="tipoNormal">Usuario Normal</label> <br />
                 
                    
                    Insira o seu  Login:
-                    <input type="text" value="${usuario.login}" name="login" required="required" /><br/>
+                    <input type="text" value="${usuario.login}" name="login" required="required"/><br/>
                    Novo  Nome:
-                    <input type="text" value="${usuario.nome}" name="nome" required="required" /><br/>
+                    <input type="text" value="${usuario.nome}" name="nome" required="required"/><br/>
                    Novo  Telefone:
                     <input type="text" value="${usuario.telefone}" required="required"  name="telefone" onkeypress="formata_mascara(this,'## # ####-####');return Numero(event);"  placeholder="xx x xxxx-xxxx"  maxlength="14"/><br/>
                     Novo Email:
-                    <input type="text" value="${usuario.email}" name="email" required="required"  /><br/>    
+                    <input type="text" value="${usuario.email}" name="email" required="required"/><br/>    
                         
-                    <input type="submit" value="Alterar Dados"   />
-                    <input type="reset" value="Cancelar" />
+                    <input type="submit" value="Alterar Dados"/>
+                    <input type="reset" value="Cancelar"/>
                     
                 </form>
             </div>
@@ -106,7 +105,7 @@
             <div class="container 50%">
             <br/>
                 <div class="row">
-            <h2>Exclusï¿½o de Conta</h2>
+            <h2>Exclusão de Conta</h2>
             </div>
                 <form action="ExcluirUsuarioForm.do" method="POST">
                 
@@ -128,9 +127,6 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    
-                    
-                    
                     <a href="javascript:history.back(1);" class="button alt">Voltar</a>
                 </form>
             </div>
@@ -141,7 +137,7 @@
             <div class="container">
                 <div class="row">
                     <ul class="copyright">
-                        <li>Curso: Pï¿½s-Graduaï¿½ï¿½o em JAVA</li>
+                        <li>Curso: Pós-Graduação em JAVA</li>
                         <li>Disciplina: Sistemas para Web e Componentes JEE e Frameworks</li><br />
                         <li>Copyright &copy; Daniel Dias dos Santos 2016</li>
                         <li>

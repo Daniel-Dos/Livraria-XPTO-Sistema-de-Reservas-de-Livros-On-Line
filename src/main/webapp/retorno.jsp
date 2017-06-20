@@ -46,9 +46,7 @@
         <section id="main" class="wrapper">
             <div class="container 50%">
                 <br/>
-                
                 <h1>${aux}</h1>
-                
                 <a href="javascript:history.back(1);" class="button special">Voltar</a>
             </div>
         </section>

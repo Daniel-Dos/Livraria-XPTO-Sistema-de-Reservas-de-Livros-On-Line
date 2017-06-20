@@ -17,11 +17,16 @@ package modelos;
 
 import javax.persistence.Entity;
 
+/**
+ * @author daniel
+ * github:Daniel-Dos
+ * daniel.dias.analistati@gmail.com
+ * twitter:@danieldiasjava
+ */
 @Entity
 public class UsuarioNormal extends Usuario {
-    
-    public int getPrazo() {
-        return 5;
-    }
-    
+
+	public int getPrazo() {
+		return 5;
+	}
 }

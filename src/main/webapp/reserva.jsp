@@ -53,7 +53,7 @@
 
 					<header class="major">
 						<h2>Reservas</h2>
-						<p>ï¿½rea destinada para consultas, inserï¿½ï¿½es, alteraï¿½ï¿½es e exclusï¿½es de reservas.</p>
+						<p>Area destinada para consultas, inserções, alterações e exclusções de reservas.</p>
 					</header>
 						<section>
 							<div class="row">
@@ -73,7 +73,7 @@
 				<div class="container">
 					<div class="row">
 							<ul class="copyright">
-                        <li>Curso: Pï¿½s-Graduaï¿½ï¿½o em JAVA</li>
+                        <li>Curso: Pós-Graduação em JAVA</li>
                         <li>Disciplina: Sistemas para Web e Componentes JEE e Frameworks</li><br />
                         <li>Copyright &copy; Daniel Dias dos Santos 2016</li>
                         <li>

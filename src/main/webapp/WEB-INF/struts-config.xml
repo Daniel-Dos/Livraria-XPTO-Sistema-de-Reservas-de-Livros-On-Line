@@ -3,32 +3,24 @@
 <!DOCTYPE struts-config PUBLIC
           "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
           "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
-
-
 <struts-config>
 	<form-beans>
 		<form-bean name="ReservaForm" type="action.form.bean.ReservaForm" />
 		<form-bean name="LivroForm" type="action.form.bean.LivroForm" />
 		<form-bean name="UsuarioForm" type="action.form.bean.UsuarioForm" />
-
-
 	</form-beans>
 
 	<global-exceptions>
-
 	</global-exceptions>
 
 	<global-forwards>
-
 		<!-- redirecionamento para Usuarios -->
-
 		<forward name="sucessoConsultarUsuario" path="/SucessoConsultarUsuario.do" />
 		<forward name="sucessoAlterarUsuario" path="/SucessoAlterarUsuario.do" />
 		<forward name="sucessoIncluir" path="/SucessoIncluir.do" />
 		<forward name="sucessoExcluir" path="/SucessoExcluir.do" />
 
 		<!-- para login , logout e erros e email -->
-
 		<forward name="logado" path="/Logado.do" />
 		<forward name="erroLogin" path="/ErroLogin.do" />
 		<forward name="logout" path="/Logout.do" />
@@ -40,20 +32,14 @@
 		<forward name="sucessoExcluirLivro" path="/SucessoExcluirLivro.do" />
 		<forward name="sucessoConsultarLivro" path="/SucessoConsultarLivro.do" />
 	
-
 		<!-- redirecionamento para Reversas -->
 		<forward name="sucessoIncluirReserva" path="/SucessoIncluirReserva.do" />
 		<forward name="sucessoConsultaReserva" path="/SucessoConsultaReserva.do" />
-
-
 	</global-forwards>
 
-
 	<action-mappings>
-		<action input="/" name="ReservaForm" path="/ConsultarReservaForm"
-			scope="session" type="action.struts.ReservaConsultarAction" validate="false" />
-		<action input="/" name="ReservaForm" path="/IncluirReservaForm"
-			scope="session" type="action.struts.ReservaIncluirAction" validate="false" />
+		<action input="/" name="ReservaForm" path="/ConsultarReservaForm" scope="session" type="action.struts.ReservaConsultarAction" validate="false" />
+		<action input="/" name="ReservaForm" path="/IncluirReservaForm" scope="session" type="action.struts.ReservaIncluirAction" validate="false" />
 
 		<!-- incluir reserva -->
 		<action path="/Formulario" forward="/incluirReserva.jsp" />
@@ -65,15 +51,10 @@
 
 		<!-- controle CRUD LIVROS -->
 		
-		<action input="/" name="LivroForm" path="/ConsultarLivroForm"
-			scope="session" type="action.struts.LivroConsultarAction" validate="false" />
-		<action input="/" name="LivroForm" path="/ExcluirLivroForm"
-			scope="session" type="action.struts.LivroExcluirAction" validate="false" />
-		<action input="/" name="LivroForm" path="/InserirLivroForm"
-			scope="session" type="action.struts.LivroInserirAction" validate="false" />
-		<action input="/" name="LivroForm" path="/AlterarLivroForm"
-			scope="session" type="action.struts.LivroAlterarAction" validate="false" />
-
+		<action input="/" name="LivroForm" path="/ConsultarLivroForm" scope="session" type="action.struts.LivroConsultarAction" validate="false" />
+		<action input="/" name="LivroForm" path="/ExcluirLivroForm" scope="session" type="action.struts.LivroExcluirAction" validate="false" />
+		<action input="/" name="LivroForm" path="/InserirLivroForm" scope="session" type="action.struts.LivroInserirAction" validate="false" />
+		<action input="/" name="LivroForm" path="/AlterarLivroForm" scope="session" type="action.struts.LivroAlterarAction" validate="false" />
 
 		<!-- incluir Livro -->
 		<action path="/Formulario" forward="/livro.jsp" />
@@ -87,27 +68,18 @@
 		<action path="/SucessoExcluirLivro" forward="/retorno.jsp" />
 		<action path="/SucessoConsultarLivro" forward="/consultaLivro.jsp" />
 		
-
 		<!-- controle CRUD USUARIOS -->
-
-		<action input="/" name="UsuarioForm" path="/InserirUsuarioForm"
-			scope="session" type="action.struts.UsuarioInserirAction" validate="false" />
-		<action input="/" name="UsuarioForm" path="/ExcluirUsuarioForm"
-			scope="session" type="action.struts.UsuarioExcluirAction" validate="false" />
-		<action input="/" name="UsuarioForm" path="/AlterarUsuarioForm"
-			scope="session" type="action.struts.UsuarioAlterarAction" validate="false" />
-		<action input="/" name="UsuarioForm" path="/ConsultarUsuarioForm"
-			scope="session" type="action.struts.UsuarioConsultarAction" validate="false" />
+		<action input="/" name="UsuarioForm" path="/InserirUsuarioForm" scope="session" type="action.struts.UsuarioInserirAction" validate="false" />
+		<action input="/" name="UsuarioForm" path="/ExcluirUsuarioForm" scope="session" type="action.struts.UsuarioExcluirAction" validate="false" />
+		<action input="/" name="UsuarioForm" path="/AlterarUsuarioForm" scope="session" type="action.struts.UsuarioAlterarAction" validate="false" />
+		<action input="/" name="UsuarioForm" path="/ConsultarUsuarioForm" scope="session" type="action.struts.UsuarioConsultarAction" validate="false" />
 
 		<!-- login e logout controle -->
-		<action input="/" name="UsuarioForm" path="/LogoutForm" scope="session"
-			type="action.struts.LogoutAction" validate="false" />
-		<action input="/" name="UsuarioForm" path="/loginForm" scope="session"
-			type="action.struts.LoginAction" validate="false" />
+		<action input="/" name="UsuarioForm" path="/LogoutForm" scope="session" type="action.struts.LogoutAction" validate="false" />
+		<action input="/" name="UsuarioForm" path="/loginForm" scope="session" type="action.struts.LoginAction" validate="false" />
 
 		<!-- recuperar e enviar email -->
-		<action input="/" name="UsuarioForm" path="/LembrarSenhaForm"
-			scope="session" type="action.struts.LembrarSenhaAction" validate="false" />
+		<action input="/" name="UsuarioForm" path="/LembrarSenhaForm" scope="session" type="action.struts.LembrarSenhaAction" validate="false" />
 
 		<action path="/Formulario" forward="/esqueceuSenha.jsp" />
 		<action path="/SucessoRecuperarSenha" forward="/esqueceuSenha.jsp" />
@@ -136,8 +108,6 @@
 		<!-- erros de login, ao entrar com validaçoes errad -->
 		<action path="/ErroLogin" forward="/index.jsp" />
 	</action-mappings>
-
-
 
 	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
 

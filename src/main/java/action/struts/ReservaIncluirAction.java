@@ -13,11 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package action.struts;
 
 import action.form.bean.LivroForm;
@@ -41,27 +36,13 @@ import persistencia.DAOFactory;
 import persistencia.GenericDAO;
 
 /**
- *
- * @author Daniel Dias
+ * @author daniel
+ * github:Daniel-Dos
+ * daniel.dias.analistati@gmail.com
+ * twitter:@danieldiasjava
  */
 public class ReservaIncluirAction extends org.apache.struts.action.Action {
 
-	/* forward name="success" path="" */
-	// private static final String SUCCESS = "success";
-	/**
-	 * This is the action called from the Struts framework.
-	 *
-	 * @param mapping
-	 *            The ActionMapping used to select this instance.
-	 * @param form
-	 *            The optional ActionForm bean for this request.
-	 * @param request
-	 *            The HTTP Request we are processing.
-	 * @param response
-	 *            The HTTP Response we are processing.
-	 * @throws java.lang.Exception
-	 * @return
-	 */
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -116,15 +97,14 @@ public class ReservaIncluirAction extends org.apache.struts.action.Action {
 
 		} catch (ClassNotFoundException e) {
 			mensagem = "Erro de Driver";
+			System.out.println(e.getMessage());
 		} catch (SQLException e) {
 			mensagem = "Não existe livro com este código.";
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		} catch (Exception e) {
 			mensagem = "Erro";
-
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
-
 		request.setAttribute("aux", mensagem);
 		return mapping.findForward("sucessoIncluirReserva");
 	}

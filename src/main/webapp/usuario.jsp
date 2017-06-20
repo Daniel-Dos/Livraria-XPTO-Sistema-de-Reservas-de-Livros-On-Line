@@ -23,7 +23,7 @@
 <html lang="en">
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Usuï¿½rios</title>
+		<title>Usuarios</title>
 		<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -41,7 +41,6 @@
 	<body>
 			<header id="header">
 				<h1>Livraria XPTO - Sistema de Reservas de Livros On-Line</h1>
-				
 			</header>
 			
 			<section id="main" class="wrapper-special">
@@ -52,18 +51,12 @@
             <label>${aux}</label>
             </div>
                 <form action="InserirUsuarioForm.do" method="POST">
-                
-                  Tipo de Usuï¿½rios<br />
-                 
-                  
+                  Tipo de Usuarios<br />
                   <input type="radio" name="rdbTipo" id="tipoVip" value="UsuarioVip"/>
-                 <label for="tipoVip">Usuï¿½rio Vip</label> <br />
+                 <label for="tipoVip">Usuario Vip</label> <br />
                  
                  <input type="radio" name="rdbTipo" id="tipoNormal" value="UsuarioNormal"/>
-                 <label for="tipoNormal">Usuï¿½rio Normal</label> <br />
-                
-               
-                
+                 <label for="tipoNormal">Usuario Normal</label> <br />
                     Login:
                     <input type="text" name="login" required="required"/><br/>
                     Senha:
@@ -74,8 +67,7 @@
                     <input type="text" name="telefone" placeholder="xx x xxxx-xxxx" required="required" onkeypress="formata_mascara(this,'## # ####-####');return Numero(event);"  maxlength="14" /><br/>
                     Email:
                     <input type="email" name="email" placeholder="exemplo@seudominio.com" required="required"/><br/>
-                    
-                               
+                
                     <input type="submit" value="Cadastrar Usuario" />
                     <input type="reset" value="Cancelar" />                   
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -86,17 +78,13 @@
                     <a href="javascript:history.back(1);" class="button alt">Voltar</a>
                 </form>
             </div>
-        </section>
-        
-        
+        </section>        
         <br/>
-        
-			
-			<footer id="footer">
+      	<footer id="footer">
 				<div class="container">
 					<div class="row">
 							<ul class="copyright">
-                        <li>Curso: Pï¿½s-Graduaï¿½ï¿½o em JAVA</li>
+                        <li>Curso: Pós-Graduação em JAVA</li>
                         <li>Disciplina: Sistemas para Web e Componentes JEE e Frameworks</li><br />
                         <li>Copyright &copy; Daniel Dias dos Santos 2016</li>
                         <li>

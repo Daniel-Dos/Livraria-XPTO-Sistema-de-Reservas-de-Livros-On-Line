@@ -86,7 +86,7 @@
             <div class="container">
                 <div class="row">
                     <ul class="copyright">
-                        <li>Curso: Pï¿½s-Graduaï¿½ï¿½o em JAVA</li>
+                        <li>Curso: Pós-Graduação em JAVA</li>
                         <li>Disciplina: Sistemas para Web e Componentes JEE e Frameworks</li><br />
                         <li>Copyright &copy; Daniel Dias dos Santos 2016</li>
                         <li>
@@ -103,5 +103,4 @@
             </div>
         </footer>
 	</body>
-
 </html>

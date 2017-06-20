@@ -22,7 +22,7 @@
 <html>
     <head>
         <meta charset="ISO-8859-1">
-        <title>Recuperaï¿½ï¿½o da Senha</title>
+        <title>Recuperação da Senha</title>
         <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
         <meta name="description" content="" />
         <meta name="keywords" content="" />
@@ -78,7 +78,7 @@
             <div class="container">
                 <div class="row">
                     <ul class="copyright">
-                        <li>Curso: Pï¿½s-Graduaï¿½ï¿½o em JAVA</li>
+                        <li>Curso: Pós-Graduação em JAVA</li>
                         <li>Disciplina: Sistemas para Web e Componentes JEE e Frameworks</li><br />
                         <li>Copyright &copy; Daniel Dias dos Santos 2016</li>
                         <li>

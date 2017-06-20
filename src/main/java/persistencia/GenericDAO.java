@@ -13,15 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package persistencia;
 
 import java.sql.SQLException;
 import java.util.List;
-import modelos.Reserva;
 
 /**
- * @author Daniel Dias
- *
+ * @author daniel
+ * github:Daniel-Dos
+ * daniel.dias.analistati@gmail.com
+ * twitter:@danieldiasjava
  */
 public interface GenericDAO<T> {
 
@@ -30,10 +32,7 @@ public interface GenericDAO<T> {
 	void alterar(T entidade) throws SQLException;
 	T consultar(T entidade) throws SQLException;
 	List<T> getAllUsers() throws SQLException;
-        T lembrarSenha(T entidade) throws SQLException; // para retornar a senha e o nome do usuario
-        T consultarLoginSenha(T entidade) throws SQLException;
-        List<T> getUser(T entidade) throws SQLException;
-       
-
-   
+	T lembrarSenha(T entidade) throws SQLException; 
+	T consultarLoginSenha(T entidade) throws SQLException;
+	List<T> getUser(T entidade) throws SQLException;
 }

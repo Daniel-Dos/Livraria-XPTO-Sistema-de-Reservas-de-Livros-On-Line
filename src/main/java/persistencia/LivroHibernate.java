@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package persistencia;
 
 import java.sql.SQLException;
@@ -26,103 +27,72 @@ import modelos.Livro;
 import modelos.Reserva;
 
 /**
- * @author Daniel Dias
- *
+ * @author daniel
+ * github:Daniel-Dos
+ * daniel.dias.analistati@gmail.com
+ * twitter:@danieldiasjava
  */
 public class LivroHibernate implements GenericDAO<Livro> {
 
 	private EntityManagerFactory emf;
 	private EntityManager manager;
 
-	/**
-	 * 
-	 */
 	public LivroHibernate() {
-		// TODO Auto-generated constructor stub
 		this.emf = DAOFactoyHibernate.getEntityManagerFactory();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see persistencia.GenericDAO#incluir(java.lang.Object)
-	 */
 	@Override
 	public void incluir(Livro entidade) throws SQLException {
-		// TODO Auto-generated method stub
 
 		try {
-
 			manager = emf.createEntityManager();
 			manager.getTransaction().begin();
 			manager.persist(entidade);
-			// manager.flush();
-			// manager.clear();
 			manager.getTransaction().commit();
 		} finally {
-
 			manager.close();
 		}
-
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see persistencia.GenericDAO#excluir(java.lang.Object)
-	 */
 	@Override
-	public void excluir(Livro  entidade) throws SQLException {
-		// TODO Auto-generated method stub
-		
+	public void excluir(Livro entidade) throws SQLException {
+
 		try {
 			manager = emf.createEntityManager();
 			manager.getTransaction().begin();
-                        
-                        String consulta = "DELETE FROM RESERVA a WHERE  a.codLivro =:codLivro";
-			Query query = manager.createNativeQuery(consulta,Reserva.class);
-                        query.setParameter("codLivro", entidade.getCodigo());
+
+			String consulta = "DELETE FROM RESERVA a WHERE  a.codLivro =:codLivro";
+			Query query = manager.createNativeQuery(consulta, Reserva.class);
+			query.setParameter("codLivro", entidade.getCodigo());
 			query.executeUpdate();
-                        
+
 			entidade = manager.find(Livro.class, entidade.getCodigo());
-			
+
 			manager.remove(entidade);
 			manager.getTransaction().commit();
 		} finally {
 			manager.close();
 		}
-
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see persistencia.GenericDAO#alterar(java.lang.Object)
-	 */
 	@Override
-	public void alterar(Livro  entidade) throws SQLException {
-		// TODO Auto-generated method stub
-		
+	public void alterar(Livro entidade) throws SQLException {
+
 		try {
-		manager = emf.createEntityManager();
-		manager.getTransaction().begin();
-		Livro id = manager.find(Livro.class, entidade.getCodigo());
-		entidade.setCodigo(id.getCodigo());
-		manager.merge(entidade);
-		manager.getTransaction().commit();
-		
-	} finally {
-		manager.close();
+			manager = emf.createEntityManager();
+			manager.getTransaction().begin();
+			Livro id = manager.find(Livro.class, entidade.getCodigo());
+			entidade.setCodigo(id.getCodigo());
+			manager.merge(entidade);
+			manager.getTransaction().commit();
+		} finally {
+			manager.close();
+		}
 	}
-	}
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see persistencia.GenericDAO#consultar(java.lang.Object)
-	 */
+
 	@Override
 	public Livro consultar(Livro entidade) throws SQLException {
-	
+
 		try {
 			manager = emf.createEntityManager();
 			manager.getTransaction().begin();
@@ -133,43 +103,36 @@ public class LivroHibernate implements GenericDAO<Livro> {
 		} finally {
 			manager.close();
 		}
-		
-		
 	}
 
-	 @Override
-	    public List<Livro> getAllUsers() throws SQLException {
-	        
-		
-		 try {
-			 manager = emf.createEntityManager();
-			 manager.getTransaction().begin();
-			 //Listando Tudo
+	@Override
+	public List<Livro> getAllUsers() throws SQLException {
+
+		try {
+			manager = emf.createEntityManager();
+			manager.getTransaction().begin();
+
 			List<Livro> listaLivros = manager.createQuery("from Livro order by codigo", Livro.class).getResultList();
-			
-			 manager.getTransaction().commit();
-		    return listaLivros;
-			 
-		 } 
-		 finally {
-			 manager.close();
-		 }
-		 
-	 }
 
-	    @Override
-	    public Livro lembrarSenha(Livro entidade) throws SQLException {
-	        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	    }
+			manager.getTransaction().commit();
+			return listaLivros;
+		} finally {
+			manager.close();
+		}
+	}
 
-	    @Override
-	    public Livro consultarLoginSenha(Livro entidade) throws SQLException {
-	        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	    }
+	@Override
+	public Livro lembrarSenha(Livro entidade) throws SQLException {
+		throw new UnsupportedOperationException("Not supported yet."); 
+	}
 
-	    @Override
-	    public List<Livro> getUser(Livro entidade) throws SQLException {
-	        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	    }
-	    
+	@Override
+	public Livro consultarLoginSenha(Livro entidade) throws SQLException {
+		throw new UnsupportedOperationException("Not supported yet."); 
+	}
+
+	@Override
+	public List<Livro> getUser(Livro entidade) throws SQLException {
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
