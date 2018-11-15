@@ -77,18 +77,20 @@ public class LembrarSenhaAction extends org.apache.struts.action.Action {
 				Properties props = new Properties();
 
 				// Parametros de conexao com sevirdor GMAIL
-				props.put("mail.smtp.host", "smtp.gmail.com");
-				props.put("mail.smtp.socketFactory.port", "587");
+				props.put("mail.smtp.host", "localhost");
+				props.put("mail.smtp.socketFactory.port", "25");
 				props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 				props.put("mail.smtp.auth", "true");
-				props.put("mail.smtp.port", "587");
-				props.put("mail.smtp.starttls.enable", "true");
+				props.put("mail.smtp.port", "25");
+				props.put("mail.smtp.starttls.enable", "false");
 
+				String naoResponda = "nao-responda@soujava.rio.org.br";
+				String passWord = "123456";
 				Session session = Session.getInstance(props, new javax.mail.Authenticator() {
 
 					@Override
 					protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
-						return new javax.mail.PasswordAuthentication("SEUEMAIL", "SUASENHA");
+						return new javax.mail.PasswordAuthentication(naoResponda, passWord);
 					}
 				});
 
@@ -98,7 +100,10 @@ public class LembrarSenhaAction extends org.apache.struts.action.Action {
 					MimeMessage message = new MimeMessage(session);
 
 					InternetAddress[] toUser = InternetAddress.parse(userForm.getEmail());
+					InternetAddress[] toReply = InternetAddress.parse(naoResponda);
 
+					message.setReplyTo(toReply);
+					message.setFrom(naoResponda);
 					message.setRecipients(Message.RecipientType.TO, toUser);
 					message.setSubject("Recuperação de Senha", "UTF-8");
 

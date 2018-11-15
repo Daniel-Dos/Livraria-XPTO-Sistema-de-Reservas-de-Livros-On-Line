@@ -46,10 +46,8 @@
                 <div class="row">
             <h2>Esqueci minha senha</h2>
             </div>
-                <form action="LembrarSenhaForm.do" method="POST" >
-                <label>Digite o seu Login.</label>
-                    <input type="text" name="login"/> 
-                    <label>Digite o seu e-mail abaixo para a recupera��o da sua senha.</label>
+                <form action="LembrarSenhaForm.do" method="POST" > 
+                    <label>Digite o seu e-mail abaixo para a recupera&ccedil;&atilde;o da sua senha.</label>
                     <input type="email" name="email" placeholder="exemplo@seudominio.com" required="required" />          
                     <br/>
                     <input type="submit" value="Enviar"/>  
@@ -60,13 +58,8 @@
         <section id="main" class="wrapper">
            <div class="container 50%" align="center">
            
-           <label style="color: green;">${msg}</label> <c:out value="${usuario.nome}" /><br /><br />
+           <label style="color: green;">${msg}</label><br />
             <label style="color: red;">${msg1}</label>
-            
-          <label>Senha Recuperada:
-          <input type="text" name="resultado" value="<c:out value="${usuario.senha}"/>" 
-          disabled="disabled" style="text-align: center" />
-          </label>
           
            <label>
            <a href="index.jsp" ><input value="Volta a Tela Principal" class="special" type="submit"></a>
